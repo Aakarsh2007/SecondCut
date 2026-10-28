@@ -48,6 +48,8 @@ Read the [problem evidence](MARKET_EVIDENCE.md), [competitive review](COMPETITIV
 
 For evaluation, use the [judge walkthrough](docs/JUDGE_GUIDE.md) and [verification record](docs/VERIFICATION.md). The [submission draft](docs/SUBMISSION_DRAFT.md) is preparation material, not a submitted entry.
 
+The [public-source case review](docs/PUBLIC_EVIDENCE_CASES.md) separates documented cancellation examples, incomplete listings, policy context and existing resale channels. These sources are not SecondCut customers or evidence of consented buyer demand. No outreach or transaction was performed from them.
+
 ## License
 
 [MIT](LICENSE). Preserve included third-party notices.

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-29",
+  "method": "Public-source contextual review; no outreach or customer validation",
+  "cases": [
+    {
+      "id": "P1",
+      "url": "https://woodweb.com/knowledge_base/Managing_a_Customer_Cancellation.html",
+      "sourceKind": "SELF_REPORTED_FORUM_CASE",
+      "sourceDate": "2011-04-21",
+      "retrieval": "DIRECT_PAGE",
+      "reportedFacts": {"category": "kitchen", "approximateOrderValueUSD": 20000, "depositPercent": 50, "cutSheetsPrepared": true, "materialsDelivered": true, "cancellationRequested": true},
+      "verifiedManufacturingCostCents": null,
+      "verifiedStockDimensionsMm": null,
+      "optInReplacementBuyer": null,
+      "applicableToRawTabletopMVP": false,
+      "decision": "OUT_OF_SCOPE_NOT_ACTIONABLE",
+      "moneyMovementAllowed": false
+    },
+    {
+      "id": "P2",
+      "url": "https://www.rcc-furniture.com/product-page/in-stock-180x90x75-reclaimed-industrial-straight-leg-table-654",
+      "sourceKind": "MERCHANT_PRODUCT_LISTING",
+      "retrieval": "SEARCH_INDEX_ONLY_DIRECT_FETCH_FAILED",
+      "reportedFacts": {"cancelledOrder": true, "soldLabel": true, "titleDimensionText": "180x90x75", "manufacturingMeasurementsUnconfirmed": true},
+      "verifiedManufacturingCostCents": null,
+      "verifiedStockDimensionsMm": null,
+      "currentAvailabilityVerified": false,
+      "optInReplacementBuyer": null,
+      "decision": "UNAVAILABLE_NEEDS_MAKER_EVIDENCE",
+      "moneyMovementAllowed": false
+    },
+    {
+      "id": "P3",
+      "url": "https://vermontwoodsstudios.com/policies/refund-policy",
+      "sourceKind": "MERCHANT_POLICY",
+      "retrieval": "DIRECT_PAGE",
+      "reportedFacts": {"individualSpecificationResaleDifficulty": true, "earlyMaterialAndSchedulingInvestment": true, "conditionalStorageCharges": true},
+      "specificCancelledOrder": null,
+      "verifiedManufacturingCostCents": null,
+      "optInReplacementBuyer": null,
+      "decision": "PROBLEM_CONTEXT_ONLY",
+      "moneyMovementAllowed": false
+    },
+    {
+      "id": "P4",
+      "urls": ["https://www.9thstreetdesignerclearance.com/our-story", "https://josephjamesfurnitureoutlet.com/pages/how-it-works"],
+      "sourceKind": "MERCHANT_PROCESS_DESCRIPTION",
+      "retrieval": "DIRECT_PAGES",
+      "reportedFacts": {"cancelledOrdersAmongResaleStock": true},
+      "realizedRecoveryMargin": null,
+      "integrationOrPartnership": false,
+      "optInReplacementBuyer": null,
+      "decision": "EXISTING_ALTERNATIVE_CHANNEL",
+      "moneyMovementAllowed": false
+    }
+  ],
+  "limits": ["Reported public claims are not independently audited.", "A stock listing is not an opt-in buyer request.", "No manufacturing costs, consent or compatibility were invented.", "No source was imported into a payable case.", "No SecondCut customer, partnership, conversion gain or physical delivery was established."]
+}
