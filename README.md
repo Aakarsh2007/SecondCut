@@ -46,6 +46,8 @@ Real buyer demand, maker costs, physical safety, delivery and environmental impa
 
 Read the [problem evidence](MARKET_EVIDENCE.md), [competitive review](COMPETITIVE_RESEARCH.md), [implementation guide](app/README.md) and [source provenance](RELEASE_MANIFEST.json).
 
+For evaluation, use the [judge walkthrough](docs/JUDGE_GUIDE.md) and [verification record](docs/VERIFICATION.md). The [submission draft](docs/SUBMISSION_DRAFT.md) is preparation material, not a submitted entry.
+
 ## License
 
 [MIT](LICENSE). Preserve included third-party notices.

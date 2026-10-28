@@ -21,6 +21,7 @@
   "publicationTarget": "https://github.com/Aakarsh2007/SecondCut",
   "releasePackagingChanges": [
     "Added a public repository landing README.",
-    "Added credential-free application and receiver verification workflows."
+    "Added credential-free application and receiver verification workflows.",
+    "Added judge walkthrough, verification record, demo script and an unsubmitted project description draft."
   ]
 }
