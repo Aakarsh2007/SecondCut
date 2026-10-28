@@ -1,0 +1,26 @@
+{
+  "preparedAt": "2026-10-28T22:28:03.802Z",
+  "inventory": [
+    {
+      "folder": "app",
+      "sourceCommit": "ca0a896b1f8d5ddf3b686ca369aca52f60d496d8",
+      "trackedFiles": 187
+    },
+    {
+      "folder": "webhook-inbox",
+      "sourceCommit": "c394e71f4ac915274b2a6f4fc59f1d00958c8cd8",
+      "trackedFiles": 20
+    }
+  ],
+  "transformations": [
+    "Tracked source only; no Git directory, secrets, local state, builds or private evidence exports.",
+    "Removed hosted project_id fields.",
+    "Replaced private deployment origins with example.invalid placeholders.",
+    "Ran pattern screening; human review remains necessary before publication."
+  ],
+  "publicationTarget": "https://github.com/Aakarsh2007/SecondCut",
+  "releasePackagingChanges": [
+    "Added a public repository landing README.",
+    "Added credential-free application and receiver verification workflows."
+  ]
+}

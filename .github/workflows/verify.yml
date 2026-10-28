@@ -1,0 +1,39 @@
+name: Verify SecondCut
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  application:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - run: npm run install:ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run build
+      - run: node scripts/benchmark-recovery.mjs
+  receiver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: webhook-inbox
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - run: node --test tests/*.test.mjs
+      - run: node scripts/build.mjs

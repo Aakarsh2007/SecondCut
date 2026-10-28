@@ -1,0 +1,1 @@
+ALTER TABLE `webhook_inbox` ADD `processing_token` text;

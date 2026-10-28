@@ -1,0 +1,14 @@
+{
+  "name": "secondcut-webhook-inbox",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "db:generate": "drizzle-kit generate"
+  },
+  "devDependencies": {
+    "drizzle-orm": "0.45.2",
+    "drizzle-kit": "0.31.10"
+  }
+}

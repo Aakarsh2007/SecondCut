@@ -1,0 +1,2 @@
+import {participantIdentity,runtime,response,errorResponse} from '@/lib/runtime';
+export async function GET(){try{const actor=await participantIdentity(),{store}=runtime();return response({identity:{email:actor.email},reviews:await store.all('SELECT p.id,p.role,p.status,c.title,c.recovery_status FROM participant_invites p JOIN recovery_cases c ON c.id=p.case_id WHERE p.actor=? ORDER BY p.created_at DESC',actor.id)});}catch(e){return errorResponse(e);}}

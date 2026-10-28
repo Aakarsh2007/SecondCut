@@ -1,0 +1,7 @@
+dist/
+site.tar.gz
+
+node_modules/
+.dev.vars*
+!.dev.vars.example
+.wrangler/

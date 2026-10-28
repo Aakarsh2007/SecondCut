@@ -1,0 +1,17 @@
+# Copy to .dev.vars for LOCAL development only. Never commit credentials.
+PAYPAL_CLIENT_ID=
+PAYPAL_CLIENT_SECRET=
+# Optional until a real sandbox webhook endpoint is registered.
+PAYPAL_WEBHOOK_ID=
+
+# Optional AI: use only a billing-disabled project. Leave disabled until verified.
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-2.5-flash
+AI_FREE_TIER_CONFIRMED=false
+
+# Optional webhook receiver lifecycle label; does not grant access.
+PAYPAL_WEBHOOK_RECEIVER_MODE=NOT_CONFIGURED
+
+# Optional dedicated durable webhook inbox. Server-side key only.
+PAYPAL_INBOX_ORIGIN=
+PAYPAL_INBOX_SYNC_KEY=

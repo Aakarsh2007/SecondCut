@@ -1,0 +1,3 @@
+import { owner,runtime,response,errorResponse,mutationGuard } from '@/lib/runtime';
+import { processWebhook } from '@/lib/webhooks.mjs';
+export async function POST(request:Request){try{mutationGuard(request);await owner();const {store,provider}=runtime();const expired=new Date(Date.now()-120000).toISOString(),pending=await store.all("SELECT id FROM webhook_inbox WHERE status='PENDING' OR (status='PROCESSING' AND updated_at<?) ORDER BY created_at LIMIT 5",expired);for(const row of pending)await processWebhook(store,provider,row.id);return response({attempted:pending.length});}catch(e){return errorResponse(e);}}
