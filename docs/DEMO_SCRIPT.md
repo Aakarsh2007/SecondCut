@@ -19,3 +19,7 @@ Use the actual application. Label any prerecorded step, synthetic scenario and s
 - Keep the reviewed sources and the public repository link available in the description.
 - Record the functioning interfaces; use already-completed provider receipts to keep the story under three minutes.
 - Required public upload and final submission have not been performed. The entrant reviews the final video, eligibility and submission terms.
+
+### Updated shot: protective refusal
+
+When demonstrating a new session, keep stress protection enabled and show the USD 1,700 refusal with the USD 1,780 required-price report. Explain that the archived completed sandbox journey was executed in reviewed fragile mode. Do not imply that the unchanged terms pass today's default protection. No real buyer has accepted USD 1,780; it is a modeled threshold, not verified revenue or demand.

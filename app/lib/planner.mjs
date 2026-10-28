@@ -6,6 +6,7 @@ const fields=['deposit','refund','incurred','completion','fees','tax','contingen
 export function validatePlanningInput(input) {
   if(!input||typeof input!=='object'||!input.snapshot||!Array.isArray(input.needs)||input.needs.length>20)throw new AppError('Provide one production snapshot and at most 20 buyer requests.');
   const s=input.snapshot;
+  if(s.requireStressProtection!==undefined&&typeof s.requireStressProtection!=='boolean')throw new AppError('Stress-margin protection must be an explicit boolean.');
   if(typeof s.title!=='string'||s.title.trim().length<3||s.title.length>100)throw new AppError('Name the unfinished order (3–100 characters).');
   for(const k of fields)if(!integer(s[k]))throw new AppError(`Enter a nonnegative integer-cent value for ${k}.`);
   if(!s.deposit||!s.askingPrice||s.floorPrice>s.askingPrice||s.refund>s.deposit)throw new AppError('Check deposit, refund, asking price and price floor.');
@@ -49,11 +50,19 @@ export function evaluatePlanning(raw,at=new Date()) {
     const margin=price===null?null:s.deposit+price-s.refund-costs-s.contingency;
     const improvement=margin===null?null:margin-baseline;
     const stressMargin=margin===null?null:margin-Math.ceil((s.completion+adaptation)*20/100);
+    const financialCodes=new Set(['PRICE_FLOOR','MARGIN','BASELINE']);
+    const assessed=price!==null&&questions.length===0&&reasons.every(r=>financialCodes.has(r.code));
+    const stressAllowance=Math.ceil((s.completion+adaptation)*20/100);
+    const requiredMargin=Math.max(s.minimumMargin,baseline+s.minimumImprovement);
+    const minimumProtectedPrice=Math.max(s.floorPrice,s.refund+costs+s.contingency+stressAllowance+requiredMargin-s.deposit,0);
+    const maximumPermittedPrice=integer(n.budget,1)?Math.min(s.askingPrice,n.budget):null;
+    const risk=assessed?{policy:s.requireStressProtection===true?'PROTECT_MINIMUM':'REVIEW_OVERRUN',stressAllowance,minimumProtectedPrice,maximumPermittedPrice,priceShortfall:Math.max(0,minimumProtectedPrice-maximumPermittedPrice),marginHeadroom:Math.max(0,margin-requiredMargin),notice:'Modeled 20% overrun, not a guarantee. Costs, buyer budget and cancellation terms require evidence; no values were changed.'}:null;
     if(price!==null&&price<s.floorPrice)reject('PRICE_FLOOR','Buyer budget is below the merchant-approved price floor.');
     if(margin!==null&&margin<s.minimumMargin)reject('MARGIN','Projected margin is below the maker minimum.');
     if(improvement!==null&&improvement<s.minimumImprovement)reject('BASELINE','Recovery does not improve sufficiently on the stated cancellation baseline.');
+    if(s.requireStressProtection===true&&risk&&stressMargin<requiredMargin)reject('STRESS_PROTECTION','The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.');
     const status=reasons.length?'REJECTED':questions.length?'NEEDS_EVIDENCE':'FEASIBLE';
-    return {id:n.id,label:String(n.label||n.id).slice(0,100),source:n.source,status,reasons,questions,evidence:[...new Set([...evidence,`buyer:${n.id}`,`snapshot:v${s.version}:dimensions`,`snapshot:v${s.version}:costs`])],operations,price,costs,adaptation,margin,baseline,improvement,stressMargin,fragile:stressMargin!==null&&stressMargin<s.minimumMargin,removedTopAreaMm2:status==='FEASIBLE'?s.lengthMm*s.widthMm-n.lengthMm*n.widthMm:null};
+    return {id:n.id,label:String(n.label||n.id).slice(0,100),source:n.source,status,reasons,questions,evidence:[...new Set([...evidence,`buyer:${n.id}`,`snapshot:v${s.version}:dimensions`,`snapshot:v${s.version}:costs`])],operations,price,costs,adaptation,margin,baseline,improvement,stressMargin,risk,fragile:stressMargin!==null&&stressMargin<requiredMargin,removedTopAreaMm2:status==='FEASIBLE'?s.lengthMm*s.widthMm-n.lengthMm*n.widthMm:null};
   };
   const candidates=input.needs.map(evaluate).sort((a,b)=>Number(b.status==='FEASIBLE')-Number(a.status==='FEASIBLE')||(b.margin??-Infinity)-(a.margin??-Infinity));
   return {engine:'DETERMINISTIC_RULES_V1',evaluatedAt:at.toISOString(),snapshotVersion:s.version,baseline,candidates,feasibleCount:candidates.filter(c=>c.status==='FEASIBLE').length,notice:'Rules-based planning. No AI inference or buyer availability is claimed. Maker must validate joinery, safety, actual costs and delivery. Removed tabletop area is offcut, not measured avoided waste.'};

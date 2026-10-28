@@ -30,7 +30,7 @@ Provider approval is different from authorization, which is different from captu
 
 One hosted joined test linked seven cited Gemini fields, a feasible saved plan and three separate approving accounts to an actual USD 1,000 sandbox deposit, USD 1,700 replacement capture and USD 900 original refund. Exact linked signed events were verified. No real money moved. All reviewer accounts were controlled by one tester, and the manufacturing/request inputs were synthetic.
 
-The source passed a fresh install, TypeScript, production build, six database migrations, 86 application tests and six receiver tests. An eight-scenario synthetic comparison shows an additional feasible dimensional adaptation beyond exact-specification matching. See [verification](VERIFICATION.md) for boundaries.
+The source passed a fresh install, TypeScript, production build, six database migrations, 92 application tests and six receiver tests. An eight-scenario synthetic comparison shows an additional feasible dimensional adaptation beyond exact-specification matching. See [verification](VERIFICATION.md) for boundaries.
 
 ## What makes the approach different
 

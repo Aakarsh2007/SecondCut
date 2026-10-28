@@ -61,6 +61,10 @@ PayPal checkout approvals expire. The explicit expired-replacement recovery cont
 
 ## Reproduce the comparison
 
+New interactive planner sessions enable stress-margin protection by default. Protected mode rejects a proposal if the modeled 20% remaining-work/adaptation overrun breaches the required margin or improvement over cancellation. A financial protection report shows the required price, current ceiling and gap without changing costs, buyer budget or refund. Legacy saved plans retain their explicit review-mode assumptions. Disabling protection permits reviewed fragile proposals; it does not make them financially stronger. Current sample inputs fail protected mode: USD 1,780 would be needed against a USD 1,700 ceiling.
+
+Use the [private validation playbook](docs/VALIDATION_PLAYBOOK.md) to distinguish real maker/buyer evidence from software attestations. It includes go/no-go criteria, an anonymized record template, required cost/constraint checks and the still-unimplemented historical-deposit import boundary. No outreach or real-money purchase is implied.
+
 Run `node scripts/benchmark-recovery.mjs` without credentials or network access. Eight labeled synthetic scenarios compare the production adaptation planner with an exact-specification baseline using the same physical, availability and financial checks but no cuts. The script asserts the expected decisions and prints modeled results. This is not a benchmark of any named competitor, market demand or AI accuracy. The smaller raw-top request illustrates the extra feasible option; oversized, unsupported, expired and unprofitable requests remain blocked.
 
 ## Durable webhook receiver

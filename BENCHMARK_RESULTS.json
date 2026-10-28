@@ -1,7 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "evaluatedAt": "2026-10-29T12:00:00.000Z",
   "currency": "USD",
+  "comparisonPolicy": "REVIEW_OVERRUN; both baseline and adaptation permit acknowledged fragile proposals",
   "scenarioCount": 8,
   "exactSpecificationFeasible": 1,
   "secondCutFeasible": 2,
@@ -117,9 +118,22 @@
       ]
     }
   ],
+  "protectedPolicyCheck": {
+    "status": "REJECTED",
+    "risk": {
+      "policy": "PROTECT_MINIMUM",
+      "stressAllowance": 8000,
+      "minimumProtectedPrice": 178000,
+      "maximumPermittedPrice": 170000,
+      "priceShortfall": 8000,
+      "marginHeadroom": 0,
+      "notice": "Modeled 20% overrun, not a guarantee. Costs, buyer budget and cancellation terms require evidence; no values were changed."
+    }
+  },
   "limitations": [
     "All scenarios and costs are invented; this is a functional regression benchmark, not a market study.",
     "Baseline uses identical availability, economic and material rules but disallows dimensional adaptation.",
+    "New interactive sessions default to stress protection; the fragile smaller-top scenario is rejected there.",
     "No named competitor algorithm, buyer liquidity, conversion, runtime speed or real recovery rate was tested.",
     "AI extraction is tested separately; this benchmark measures the deterministic planner, not LLM accuracy."
   ]

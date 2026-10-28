@@ -1,7 +1,7 @@
 import { owner,runtime,response,errorResponse,mutationGuard,jsonBody } from '@/lib/runtime';
 import { AppError } from '@/lib/domain.mjs';
 import { evaluatePlanning,validatePlanningInput,samplePlanningInput } from '@/lib/planner.mjs';
-export async function GET(){try{await owner();return response(samplePlanningInput());}catch(e){return errorResponse(e);}}
+export async function GET(){try{await owner();const input=samplePlanningInput();return response({...input,snapshot:{...input.snapshot,requireStressProtection:true}});}catch(e){return errorResponse(e);}}
 export async function POST(request:Request){try{
   mutationGuard(request);const user=await owner(),input=validatePlanningInput(await jsonBody(request));const {store}=runtime();
   const count=await store.one('SELECT COUNT(*) AS count FROM planning_runs WHERE owner=?',user);

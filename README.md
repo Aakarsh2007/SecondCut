@@ -40,7 +40,7 @@ The separate [webhook inbox](webhook-inbox/README.md) needs its own D1 deploymen
 
 A hosted test completed recorded Gemini extraction, a feasible saved plan, three separate approved accounts, a USD 1,000 original deposit, a different buyer's USD 1,700 replacement capture, a USD 900 original refund and linked signed events. No real money moved. All reviewer accounts belong to one tester; requests, manufacturing quotes and costs were synthetic. Private participant details, credentials and transaction exports are excluded.
 
-Fresh installation, TypeScript and production build passed, alongside **86 application tests** and **6 receiver tests**. The [eight-scenario comparison](BENCHMARK_RESULTS.json) adds one feasible adaptation beyond an exact-specification baseline. It is a synthetic functional benchmark, not evidence of competitor superiority, conversion gains, time saved or LLM accuracy.
+Fresh installation, TypeScript and production build passed, alongside **92 application tests** and **6 receiver tests**. The [eight-scenario comparison](BENCHMARK_RESULTS.json) adds one feasible adaptation beyond an exact-specification baseline. It is a synthetic functional benchmark, not evidence of competitor superiority, conversion gains, time saved or LLM accuracy.
 
 Real buyer demand, maker costs, physical safety, delivery and environmental impact remain unverified. The MVP supports one workshop, USD and local pickup. Counteroffers are bounded rules-based proposals, not autonomous negotiations. SecondCut is not an escrow service or a determination of legal refund rights.
 
@@ -51,3 +51,9 @@ For evaluation, use the [judge walkthrough](docs/JUDGE_GUIDE.md) and [verificati
 ## License
 
 [MIT](LICENSE). Preserve included third-party notices.
+
+## Financial protection and validation
+
+New planner sessions require the minimum margin and baseline improvement to survive the modeled 20% overrun. The current synthetic USD 1,700 request is rejected under that policy: USD 1,780 would be needed. The report shows the gap without changing a buyer budget or inventing cheaper costs. Explicit review mode and legacy plans retain their stated fragile assumptions; the earlier joined sandbox test used that reviewed mode.
+
+Use the [private validation playbook](app/docs/VALIDATION_PLAYBOOK.md) for the permissioned maker record, physical checks, genuine buyer requirement, supported quote and receipt gates. Historical merchant-deposit import remains outside this MVP; it collects a new sandbox original deposit per case. Existing provider evidence is not proof of buyer demand or physical feasibility.

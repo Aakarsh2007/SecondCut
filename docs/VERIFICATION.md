@@ -20,3 +20,5 @@ Recorded 29 October 2026. Distinguish actual providers, simulated software tests
 Private account details, credentials, role invitations and raw transaction exports are intentionally excluded. Inspect the implementation and reproduce the tests using [the judge guide](JUDGE_GUIDE.md).
 
 Outstanding: independent demand, willingness to pay, real costs and maker validation, physical adaptation/receipt and measured environmental impact. Public [problem evidence](../MARKET_EVIDENCE.md) supports the problem's existence, not demand for this particular product.
+
+Update: stress-margin protection and its source-input validation now pass 92 application tests. New interactive sessions default to protection. The original USD 1,700 sample is refused there, and exact-cent boundary tests confirm USD 1,780 is required under those assumptions. Server confirmation cannot bypass a saved protected plan. Earlier financial provider evidence remains unchanged and used explicit review mode. Real maker/buyer validation remains pending.

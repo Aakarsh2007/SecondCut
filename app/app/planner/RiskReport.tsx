@@ -1,0 +1,5 @@
+const usd=(n:number)=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n/100);
+export default function RiskReport({risk}:{risk:any}){
+ if(!risk)return null;
+ return <section className="planner-risk" aria-label="Financial protection report"><h4>Financial protection</h4><p>{risk.policy==='PROTECT_MINIMUM'?'Protected minimum required after the modeled overrun.':'Review mode: a fragile proposal may proceed only with explicit risk acknowledgement.'}</p><dl><div><dt>Minimum price for protected outcome</dt><dd>{usd(risk.minimumProtectedPrice)}</dd></div><div><dt>Current price/budget ceiling</dt><dd>{usd(risk.maximumPermittedPrice)}</dd></div><div><dt>Gap to protected outcome</dt><dd>{usd(risk.priceShortfall)}</dd></div><div><dt>Unplanned cost room before minimum is breached</dt><dd>{usd(risk.marginHeadroom)}</dd></div></dl><p>{risk.notice}</p>{risk.priceShortfall>0&&<p>Current terms do not support the protected outcome. Any new price, cost or refund needs supporting evidence and fresh participant terms. No buyer is promised.</p>}</section>;
+}

@@ -15,7 +15,7 @@ node scripts/benchmark-recovery.mjs
 npm run build
 ```
 
-Expected: 86 passing application tests; eight benchmark scenarios with one feasible exact-specification option and two feasible adaptation options. Provider behavior in automated tests is simulated. These tests do not contact PayPal or Gemini or move money.
+Expected: 92 passing application tests; eight benchmark scenarios with one feasible exact-specification option and two feasible adaptation options. Provider behavior in automated tests is simulated. These tests do not contact PayPal or Gemini or move money.
 
 The standalone receiver can be checked without installing schema-development dependencies:
 
@@ -96,3 +96,7 @@ Physical readiness and receipt are separate participant reports. Do not mark the
 ## Scope
 
 One workshop, USD, local pickup, raw-top shortening/narrowing. No live buyer network, legal refund determination, structural certification, live-money deployment or proven commercial recovery rate is claimed.
+
+### Updated default financial policy
+
+New interactive sessions enable stress protection, so the unchanged USD 1,700 synthetic request is now REJECTED: its protected minimum price is USD 1,780. The earlier financial breakdown remains useful for explaining why. This refusal is expected. As a separate clearly synthetic boundary test, a hypothetical asking price AND buyer budget of USD 1,780 passes the modeled minimum. This does not establish a real customer's willingness to pay. Review mode is an explicit opt-out and cannot be inferred from acknowledging risk on a protected saved plan. Existing paid cases are not rewritten.
