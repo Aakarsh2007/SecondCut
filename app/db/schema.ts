@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, uniqueIndex } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, uniqueIndex,index } from 'drizzle-orm/sqlite-core';
 
 export const recoveryCases = sqliteTable('recovery_cases', {
   id: text('id').primaryKey(), owner: text('owner').notNull(), title: text('title').notNull(),
@@ -54,6 +54,10 @@ export const negotiations=sqliteTable('negotiations',{
  id:text('id').primaryKey(),owner:text('owner').notNull(),runId:text('run_id').notNull(),needId:text('need_id').notNull(),
  rounds:text('rounds').notNull().default('[]'),revision:integer('revision').notNull().default(0),createdAt:text('created_at').notNull(),
 });
+export const commercialAdvice=sqliteTable('commercial_advice',{
+ id:text('id').primaryKey(),owner:text('owner').notNull(),runId:text('run_id').notNull(),needId:text('need_id').notNull(),
+ sessionId:text('session_id'),revision:integer('revision').notNull().default(0),status:text('status').notNull(),result:text('result'),createdAt:text('created_at').notNull(),
+},table=>[index('advice_owner_day').on(table.owner,table.createdAt)]);
 export const participantInvites=sqliteTable('participant_invites',{
  id:text('id').primaryKey(),caseId:text('case_id').notNull().references(()=>recoveryCases.id),
  role:text('role').notNull(),email:text('email').notNull(),tokenHash:text('token_hash').notNull(),

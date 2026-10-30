@@ -1,10 +1,11 @@
 {
-  "preparedAt": "2026-10-28T23:35:40.706Z",
+  "preparedAt": "2026-10-30T04:29:18.814Z",
+  "published": false,
   "inventory": [
     {
       "folder": "app",
-      "sourceCommit": "c461615f755afd00a1ca568979cbec67181f4a7b",
-      "trackedFiles": 189
+      "sourceCommit": "834e65ee153d236d59437d445732cd8322a04045",
+      "trackedFiles": 198
     },
     {
       "folder": "webhook-inbox",
@@ -17,12 +18,5 @@
     "Removed hosted project_id fields.",
     "Replaced private deployment origins with example.invalid placeholders.",
     "Ran pattern screening; human review remains necessary before publication."
-  ],
-  "publicationTarget": "https://github.com/Aakarsh2007/SecondCut",
-  "releasePackagingChanges": [
-    "Added a public repository landing README.",
-    "Added credential-free application and receiver verification workflows.",
-    "Added judge walkthrough, verification record, demo script and an unsubmitted project description draft.",
-    "Stress protection defaults on for new interactive plans; explicit review mode retained for legacy records. Added private validation playbook."
   ]
 }

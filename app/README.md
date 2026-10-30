@@ -21,7 +21,7 @@ Node.js 22.13+ and npm are required. No Sites plugin or Git credentials are need
 1. Run `npm run install:ci`.
 2. Copy `.dev.vars.example` to `.dev.vars`. Set sandbox `PAYPAL_CLIENT_ID` and `PAYPAL_CLIENT_SECRET`. AI is optional; configure a billing-disabled Gemini project and set `AI_FREE_TIER_CONFIRMED=true` only after checking that project's billing state. Never commit secrets.
 3. Run `npm run build`.
-4. Initialize a **fresh** local database by applying **all six** SQL migrations in filename order. In PowerShell, from this directory:
+4. Initialize a **fresh** local database by applying **all seven** SQL migrations in filename order. In PowerShell, from this directory:
 
    ```powershell
    Get-ChildItem -LiteralPath drizzle -Filter '*.sql' | Sort-Object Name | ForEach-Object {
@@ -103,3 +103,7 @@ UNKNOWN/PENDING/RUNNING operations must be reconciled before a new commitment. A
 One workshop, USD, local pickup and only shortening/narrowing a raw tabletop are supported. No finished-top refinishing, structural certification, shipping promise, live buyer network or live-money production deployment is claimed. Historical deposits are not silently imported into new proposals. Independent demand, willingness to pay, actual modification costs, physical fulfillment and environmental impact remain unvalidated unless supported by separate evidence. Account sign-in does not establish legal identity or ownership of a PayPal account. This is not a legal determination of cancellation/refund rights.
 
 The code is MIT licensed; preserve bundled third-party notices. Never publish `.dev.vars`, `.env` files, provider credentials, invitation tokens, cookies, private transaction exports, local databases or managed-repository credentials.
+
+## AI commercial alternatives
+
+The planner now offers Gemini-generated conditional alternatives inside the existing counteroffer flow. See [commercial-agent safeguards](docs/COMMERCIAL_AGENT.md) and [synthetic real-provider evaluation](docs/COMMERCIAL_LIVE_EVIDENCE.json). All alternatives are checked deterministically; selecting a draft creates no acceptance or payment. A fresh AI-negotiated joined sandbox payment journey still requires separate verification.

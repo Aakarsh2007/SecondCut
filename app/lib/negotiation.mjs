@@ -26,8 +26,16 @@ export async function submitCounteroffer(store,user,id,body,at=new Date()){
  if(session.revision>=3)throw new AppError('Three rounds reached. Maker review and a new planning evaluation are required.',409);
  const run=await store.one('SELECT * FROM planning_runs WHERE id=? AND owner=?',session.run_id,user);if(!run||run.case_id)throw new AppError('Source proposal is already fixed or unavailable.',409);
  for(const round of JSON.parse(session.rounds)){if(round.planId){const child=await store.one('SELECT case_id FROM planning_runs WHERE id=? AND owner=?',round.planId,user);if(child?.case_id)throw new AppError('A counteroffer is already a fixed payment proposal. Negotiation is closed.',409);}}
+ let commercialAdvice=null;
+ if(body.commercialAdviceId){
+  const advice=await store.one("SELECT * FROM commercial_advice WHERE id=? AND owner=? AND status='COMPLETED'",body.commercialAdviceId,user);
+  if(!advice||advice.run_id!==run.id||advice.need_id!==session.need_id||advice.revision!==session.revision||(advice.session_id&&advice.session_id!==session.id)||at.getTime()-Date.parse(advice.created_at)>20*60*1000||Date.parse(advice.created_at)>at.getTime())throw new AppError('AI proposal expired, changed or belongs to another negotiation. Generate alternatives again.',409);
+  const selected=JSON.parse(advice.result).alternatives.find(a=>a.index===body.commercialAlternativeIndex);
+  if(selected?.status!=='REVIEWABLE'||!['price','lengthMm','widthMm','latestDate'].every(k=>body[k]===selected.offer[k]))throw new AppError('AI proposal values changed. Submit an explicitly manual counteroffer or generate again.',409);
+  commercialAdvice={id:advice.id,index:selected.index,source:'GEMINI_API'};
+ }
  const input=JSON.parse(run.input),offer=evaluateCounteroffer(input,session.need_id,body,at),offerId=crypto.randomUUID(),planId=offer.status==='PROPOSAL'?crypto.randomUUID():null;
- const round={id:offerId,number:session.revision+1,price:body.price,lengthMm:body.lengthMm??null,widthMm:body.widthMm??null,latestDate:body.latestDate||null,specChangeConfirmed:body.specChangeConfirmed===true,status:offer.status,reason:offer.reason,planId,createdAt:at.toISOString()};
+ const round={id:offerId,number:session.revision+1,price:body.price,lengthMm:body.lengthMm??null,widthMm:body.widthMm??null,latestDate:body.latestDate||null,specChangeConfirmed:body.specChangeConfirmed===true,status:offer.status,reason:offer.reason,planId,commercialAdvice,createdAt:at.toISOString()};
  const rounds=JSON.stringify([...JSON.parse(session.rounds),round]);
  const stmts=[store.db.prepare('UPDATE negotiations SET rounds=?,revision=revision+1 WHERE id=? AND owner=? AND revision=? AND revision<3').bind(rounds,id,user,session.revision)];
  let result;

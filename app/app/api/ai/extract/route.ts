@@ -9,7 +9,7 @@ export async function POST(request:Request){try{
  if(typeof body.notes!=='string'||body.notes.trim().length<10||body.notes.length>4000)throw new AppError('Provide 10–4,000 characters of notes.');
  if(/[\w.+-]+@[\w.-]+\.[a-z]{2,}/i.test(body.notes))throw new AppError('Remove email addresses before sending buyer notes.');
  const id=crypto.randomUUID(),stamp=new Date().toISOString(),day=stamp.slice(0,10);
- const inserted=await store.one("INSERT INTO ai_extractions (id,owner,source,notes,status,created_at) SELECT ?,?,?,?,'RUNNING',? WHERE (SELECT COUNT(*) FROM ai_extractions WHERE owner=? AND created_at>=?)<20 RETURNING id",id,user,body.source,body.notes,stamp,user,day);
+ const inserted=await store.one("INSERT INTO ai_extractions (id,owner,source,notes,status,created_at) SELECT ?,?,?,?,'RUNNING',? WHERE ((SELECT COUNT(*) FROM ai_extractions WHERE owner=? AND created_at>=?)+(SELECT COUNT(*) FROM commercial_advice WHERE owner=? AND created_at>=?))<20 RETURNING id",id,user,body.source,body.notes,stamp,user,day,user,day);
  if(!inserted)throw new AppError('Workspace AI limit of 20 attempts per UTC day reached. No provider call made.',429);
  try{const result=await extractBuyerNotes(body.notes,config);await store.run("UPDATE ai_extractions SET status='COMPLETED',result=? WHERE id=? AND owner=?",JSON.stringify(result),id,user);return response({id,...result,recordSource:body.source});}
  catch(e){await store.run("UPDATE ai_extractions SET status='FAILED' WHERE id=? AND owner=?",id,user);throw e;}
