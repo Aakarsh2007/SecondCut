@@ -1,11 +1,11 @@
 {
-  "preparedAt": "2026-10-30T04:29:18.814Z",
+  "preparedAt": "2026-10-30T04:41:33.688Z",
   "published": false,
   "inventory": [
     {
       "folder": "app",
-      "sourceCommit": "834e65ee153d236d59437d445732cd8322a04045",
-      "trackedFiles": 198
+      "sourceCommit": "512c533d75a633e1a1b651dd8bca7f9bcd18cb99",
+      "trackedFiles": 199
     },
     {
       "folder": "webhook-inbox",

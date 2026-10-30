@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-30T04:36:59.685Z",
+  "source": "SYNTHETIC",
+  "notes": "SYNTHETIC DEMO; not a real buyer request.\nI need a walnut desk with a natural finish.\nThe top must be 1600 x 700 mm.\nMy maximum budget is USD 1700.\nLatest pickup date: 2026-11-09.\nPickup area: Workshop pickup.",
+  "result": {
+    "facts": [
+      {
+        "field": "material",
+        "value": "walnut",
+        "quote": "I need a walnut desk with a natural finish.",
+        "line": 2
+      },
+      {
+        "field": "finish",
+        "value": "natural",
+        "quote": "I need a walnut desk with a natural finish.",
+        "line": 2
+      },
+      {
+        "field": "lengthMm",
+        "value": 1600,
+        "quote": "The top must be 1600 x 700 mm.",
+        "line": 3
+      },
+      {
+        "field": "widthMm",
+        "value": 700,
+        "quote": "The top must be 1600 x 700 mm.",
+        "line": 3
+      },
+      {
+        "field": "budget",
+        "value": 170000,
+        "quote": "My maximum budget is USD 1700.",
+        "line": 4
+      },
+      {
+        "field": "latestDate",
+        "value": "2026-11-09",
+        "quote": "Latest pickup date: 2026-11-09.",
+        "line": 5
+      },
+      {
+        "field": "pickupArea",
+        "value": "Workshop pickup.",
+        "quote": "Pickup area: Workshop pickup.",
+        "line": 6
+      }
+    ],
+    "rejected": [],
+    "questions": [],
+    "missing": [],
+    "notice": "Quoted evidence verified mechanically. Interpretation can still be wrong; review every field. No consent, maker rule, price commitment or payment permission is inferred.",
+    "model": "gemini-2.5-flash",
+    "promptVersion": "buyer-notes-v2-numbered-lines",
+    "latencyMs": 2650,
+    "usage": {
+      "promptTokenCount": 318,
+      "candidatesTokenCount": 223,
+      "totalTokenCount": 541,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 318
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "source": "GEMINI_API"
+  }
+}
