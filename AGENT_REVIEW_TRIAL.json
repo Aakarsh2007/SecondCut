@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-30T16:54:22.433Z",
+  "operator": "AI_AGENT_UI",
+  "scenario": "Synthetic A: three saved model offers",
+  "task": "Policy-review subtask only; not buyer discovery or full recovery",
+  "order": "Manual first, assisted second; same task, learning/carryover bias",
+  "manual": {
+    "elapsedSeconds": 63.6,
+    "fieldChangeEvents": 5,
+    "distinctFieldsChanged": 5,
+    "submitAttempts": 1,
+    "correct": true
+  },
+  "assisted": {
+    "elapsedSeconds": 49.2,
+    "fieldChangeEvents": 2,
+    "distinctFieldsChanged": 2,
+    "submitAttempts": 1,
+    "correct": true
+  },
+  "differenceSeconds": 14.4,
+  "distinctFieldDifference": 3,
+  "limits": [
+    "Elapsed wall time includes thinking, typing and interruptions. Input events depend on typing/paste behavior; distinct fields are not total human actions.",
+    "AI discovery and generation latency are outside this review-only trial.",
+    "Manual task records three calculations; assisted mode uses the saved deterministic record and still requires review.",
+    "Client-reported timing is not independently audited.",
+    "Conducted by an AI agent through the visible native browser UI, not a human.",
+    "Agent/tool round trips, navigation/layout recovery and prior scenario knowledge affect wall time.",
+    "These numbers cannot establish human time saved, customer ROI or general performance."
+  ],
+  "clientEmittedOperator": "USER_SELF_REPORTED",
+  "independentHuman": false,
+  "priorScenarioFamiliarity": true,
+  "toolRoundTripsIncluded": true
+}
