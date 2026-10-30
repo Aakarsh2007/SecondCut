@@ -1,0 +1,954 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-30T14:14:57.616Z",
+  "scenarioSource": "SYNTHETIC",
+  "fixtures": [
+    {
+      "name": "conditional uncut",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "REVIEWABLE",
+      "actual": "REVIEWABLE",
+      "passed": true,
+      "baseline": "REJECTED",
+      "elapsedMs": 5.713700000000003
+    },
+    {
+      "name": "original protected size",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "baseline": "REJECTED",
+      "elapsedMs": 2.5005999999999915
+    },
+    {
+      "name": "over budget",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "baseline": "REJECTED",
+      "elapsedMs": 0.9958000000000027
+    },
+    {
+      "name": "under floor",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "baseline": "REJECTED",
+      "elapsedMs": 0.7292000000000058
+    },
+    {
+      "name": "enlarge length",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "baseline": "REJECTED",
+      "elapsedMs": 1.0999000000000052
+    },
+    {
+      "name": "enlarge width",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "baseline": "REJECTED",
+      "elapsedMs": 0.977099999999993
+    },
+    {
+      "name": "invented evidence",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "baseline": "REJECTED",
+      "elapsedMs": 0.5759999999999934
+    },
+    {
+      "name": "refund injection",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "baseline": "REJECTED",
+      "elapsedMs": 1.5767000000000024
+    },
+    {
+      "name": "stale quote",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "baseline": "NEEDS_EVIDENCE",
+      "elapsedMs": 1.143100000000004
+    },
+    {
+      "name": "material conflict",
+      "kind": "CONTROLLED_VALIDATOR_FIXTURE",
+      "expected": "BLOCKED",
+      "actual": "BLOCKED",
+      "passed": true,
+      "baseline": "REJECTED",
+      "elapsedMs": 0.9976999999999947
+    },
+    {
+      "name": "closed",
+      "kind": "CONTROLLED_PREFLIGHT_FIXTURE",
+      "passed": true,
+      "providerCalls": 0
+    },
+    {
+      "name": "no consent",
+      "kind": "CONTROLLED_PREFLIGHT_FIXTURE",
+      "passed": true,
+      "providerCalls": 0
+    },
+    {
+      "name": "expired request",
+      "kind": "CONTROLLED_PREFLIGHT_FIXTURE",
+      "passed": true,
+      "providerCalls": 0
+    },
+    {
+      "name": "conflicting explicit lengths",
+      "kind": "CONTROLLED_EXTRACTION_FIXTURE",
+      "passed": true
+    },
+    {
+      "name": "missing dimension units",
+      "kind": "CONTROLLED_EXTRACTION_FIXTURE",
+      "passed": true
+    }
+  ],
+  "live": [
+    {
+      "name": "conditional recovery",
+      "type": "commercial",
+      "status": "COMPLETED",
+      "providerCalls": 1,
+      "elapsedMs": 5094,
+      "payloadExcludedMarker": true,
+      "model": "gemini-2.5-flash",
+      "promptVersion": "commercial-alternatives-v1",
+      "usage": {
+        "promptTokenCount": 921,
+        "candidatesTokenCount": 692,
+        "totalTokenCount": 1613,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 921
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "result": {
+        "alternatives": [
+          {
+            "index": 0,
+            "status": "REVIEWABLE",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1800,
+              "widthMm": 800,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "Counteroffer passes the modeled maker limits. It is not accepted by any participant and needs fresh proposal confirmation.",
+            "rationale": "This option proposes selling the raw, uncut tabletop at the original asking price. It avoids all cutting costs, which reduces the overall cost and eliminates the stress protection shortfall. The buyer would need to agree to a larger tabletop and arrange for their own cutting.",
+            "tradeoff": "Buyer accepts a larger tabletop (1800mm x 800mm instead of 1600mm x 700mm) and arranges for their own cutting.",
+            "evidence": [
+              {
+                "ref": "snapshot.lengthMm",
+                "value": "1800"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "800"
+              },
+              {
+                "ref": "snapshot.askingPrice",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              }
+            ],
+            "changes": [
+              "lengthMm",
+              "widthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": 20000,
+              "stressMargin": 14000,
+              "adaptation": 0,
+              "fragile": false
+            }
+          },
+          {
+            "index": 1,
+            "status": "BLOCKED",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1600,
+              "widthMm": 800,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "rationale": "This option proposes cutting only the length of the tabletop to the buyer's requested dimension, while keeping the width at the original stock size. This reduces the cutting costs compared to both cuts, which helps to mitigate the stress protection shortfall. The buyer would need to agree to a wider tabletop.",
+            "tradeoff": "Buyer accepts a wider tabletop (1600mm x 800mm instead of 1600mm x 700mm).",
+            "evidence": [
+              {
+                "ref": "snapshot.lengthMm",
+                "value": "1800"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "800"
+              },
+              {
+                "ref": "snapshot.allowShorten",
+                "value": "true"
+              },
+              {
+                "ref": "snapshot.cutLengthCost",
+                "value": "5000"
+              },
+              {
+                "ref": "snapshot.askingPrice",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              },
+              {
+                "ref": "buyer.lengthMm",
+                "value": "1600"
+              }
+            ],
+            "changes": [
+              "widthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": 15000,
+              "stressMargin": 8000,
+              "adaptation": 5000,
+              "fragile": true
+            }
+          },
+          {
+            "index": 2,
+            "status": "BLOCKED",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1800,
+              "widthMm": 700,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "rationale": "This option proposes cutting only the width of the tabletop to the buyer's requested dimension, while keeping the length at the original stock size. This reduces the cutting costs compared to both cuts, which helps to mitigate the stress protection shortfall. The buyer would need to agree to a longer tabletop.",
+            "tradeoff": "Buyer accepts a longer tabletop (1800mm x 700mm instead of 1600mm x 700mm).",
+            "evidence": [
+              {
+                "ref": "snapshot.lengthMm",
+                "value": "1800"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "800"
+              },
+              {
+                "ref": "snapshot.allowNarrow",
+                "value": "true"
+              },
+              {
+                "ref": "snapshot.cutWidthCost",
+                "value": "5000"
+              },
+              {
+                "ref": "snapshot.askingPrice",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              },
+              {
+                "ref": "buyer.widthMm",
+                "value": "700"
+              }
+            ],
+            "changes": [
+              "lengthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": 15000,
+              "stressMargin": 8000,
+              "adaptation": 5000,
+              "fragile": true
+            }
+          }
+        ],
+        "warnings": [
+          {
+            "code": "STRESS_PROTECTION",
+            "evidence": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "action": "Review supported size/cost alternatives; do not raise the recorded budget."
+          },
+          {
+            "code": "APPROVALS_REQUIRED",
+            "evidence": "Planning proposals do not establish maker or buyer acceptance.",
+            "action": "Fix the exact terms and collect all three separately authenticated approvals before commitment."
+          }
+        ],
+        "baseline": {
+          "status": "REJECTED",
+          "reasons": [
+            {
+              "code": "STRESS_PROTECTION",
+              "message": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget."
+            }
+          ],
+          "questions": [],
+          "operations": [
+            {
+              "id": "SHORTEN_TOP",
+              "from": 1800,
+              "to": 1600,
+              "unit": "mm",
+              "cost": 5000,
+              "evidence": "snapshot:v1:allowShorten"
+            },
+            {
+              "id": "NARROW_TOP",
+              "from": 800,
+              "to": 700,
+              "unit": "mm",
+              "cost": 5000,
+              "evidence": "snapshot:v1:allowNarrow"
+            }
+          ],
+          "price": 170000,
+          "costs": 160000,
+          "adaptation": 10000,
+          "margin": 10000,
+          "baseline": -14000,
+          "improvement": 24000,
+          "stressMargin": 2000,
+          "risk": {
+            "policy": "PROTECT_MINIMUM",
+            "stressAllowance": 8000,
+            "minimumProtectedPrice": 178000,
+            "maximumPermittedPrice": 170000,
+            "priceShortfall": 8000,
+            "marginHeadroom": 0,
+            "notice": "Modeled 20% overrun, not a guarantee. Costs, buyer budget and cancellation terms require evidence; no values were changed."
+          },
+          "fragile": true,
+          "removedTopAreaMm2": null
+        },
+        "ranking": "Policy pass, non-fragile outcome, fewer buyer requirement changes, then higher stressed margin. Not a measured buyer-satisfaction score.",
+        "notice": "AI rationale is a proposal, not a verified fact or acceptance. All prices and margins are checked by deterministic rules. No payment is executed.",
+        "source": "GEMINI_API",
+        "model": "gemini-2.5-flash",
+        "promptVersion": "commercial-alternatives-v1",
+        "latencyMs": 5093,
+        "usage": {
+          "promptTokenCount": 921,
+          "candidatesTokenCount": 692,
+          "totalTokenCount": 1613,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 921
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "cost": "Not measured; free-tier configuration required."
+      },
+      "generated": 3,
+      "policyPass": 1,
+      "blocked": 2,
+      "rulesOnlyBaseline": "REJECTED",
+      "conditionalReviewable": 1,
+      "expectation": "At least one conditional useful alternative is desirable, not guaranteed",
+      "expectationMet": true
+    },
+    {
+      "name": "uneconomic stock",
+      "type": "commercial",
+      "status": "COMPLETED",
+      "providerCalls": 1,
+      "elapsedMs": 6619,
+      "payloadExcludedMarker": true,
+      "model": "gemini-2.5-flash",
+      "promptVersion": "commercial-alternatives-v1",
+      "usage": {
+        "promptTokenCount": 945,
+        "candidatesTokenCount": 1111,
+        "totalTokenCount": 2056,
+        "cachedContentTokenCount": 569,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 945
+          }
+        ],
+        "cacheTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 569
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "result": {
+        "alternatives": [
+          {
+            "index": 3,
+            "status": "BLOCKED",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1600,
+              "widthMm": 700,
+              "latestDate": "2026-11-09"
+            },
+            "reason": "Projected margin is below the maker minimum. The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "rationale": "This option matches the buyer's requested dimensions and price by adjusting the pickup date. While the original proposal was rejected due to margin and stress protection, a later pickup date could potentially allow for a re-evaluation of costs or terms, making this option viable if the buyer is flexible on the pickup date.",
+            "tradeoff": "Buyer accepts a later pickup date (2026-11-09) than the earliest possible date (2026-11-06) for the requested dimensions.",
+            "evidence": [
+              {
+                "ref": "buyer.lengthMm",
+                "value": "1600"
+              },
+              {
+                "ref": "buyer.widthMm",
+                "value": "700"
+              },
+              {
+                "ref": "buyer.latestDate",
+                "value": "2026-11-09"
+              },
+              {
+                "ref": "buyer.budget",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.incurred",
+                "value": "300000"
+              },
+              {
+                "ref": "snapshot.completion",
+                "value": "30000"
+              },
+              {
+                "ref": "snapshot.fees",
+                "value": "10000"
+              },
+              {
+                "ref": "snapshot.contingency",
+                "value": "10000"
+              }
+            ],
+            "changes": [],
+            "needsBuyerAgreement": false,
+            "metrics": {
+              "price": 170000,
+              "margin": -180000,
+              "stressMargin": -188000,
+              "adaptation": 10000,
+              "fragile": true
+            }
+          },
+          {
+            "index": 1,
+            "status": "BLOCKED",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1600,
+              "widthMm": 800,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "Projected margin is below the maker minimum. The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "rationale": "This option proposes cutting only the length of the tabletop to meet the buyer's requested length, while keeping the original width. This reduces one cutting cost, making the overall cost lower than the original proposal and allowing the price to meet the buyer's budget.",
+            "tradeoff": "Buyer accepts a wider tabletop (800mm) than requested (700mm) and an earlier pickup date (2026-11-06) than requested (2026-11-09).",
+            "evidence": [
+              {
+                "ref": "snapshot.lengthMm",
+                "value": "1800"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "800"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              },
+              {
+                "ref": "buyer.budget",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.incurred",
+                "value": "300000"
+              },
+              {
+                "ref": "snapshot.completion",
+                "value": "30000"
+              },
+              {
+                "ref": "snapshot.fees",
+                "value": "10000"
+              },
+              {
+                "ref": "snapshot.contingency",
+                "value": "10000"
+              }
+            ],
+            "changes": [
+              "widthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": -175000,
+              "stressMargin": -182000,
+              "adaptation": 5000,
+              "fragile": true
+            }
+          },
+          {
+            "index": 2,
+            "status": "BLOCKED",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1800,
+              "widthMm": 700,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "Projected margin is below the maker minimum. The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "rationale": "This option proposes cutting only the width of the tabletop to meet the buyer's requested width, while keeping the original length. This reduces one cutting cost, making the overall cost lower than the original proposal and allowing the price to meet the buyer's budget.",
+            "tradeoff": "Buyer accepts a longer tabletop (1800mm) than requested (1600mm) and an earlier pickup date (2026-11-06) than requested (2026-11-09).",
+            "evidence": [
+              {
+                "ref": "snapshot.lengthMm",
+                "value": "1800"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "800"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              },
+              {
+                "ref": "buyer.budget",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.incurred",
+                "value": "300000"
+              },
+              {
+                "ref": "snapshot.completion",
+                "value": "30000"
+              },
+              {
+                "ref": "snapshot.fees",
+                "value": "10000"
+              },
+              {
+                "ref": "snapshot.contingency",
+                "value": "10000"
+              }
+            ],
+            "changes": [
+              "lengthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": -175000,
+              "stressMargin": -182000,
+              "adaptation": 5000,
+              "fragile": true
+            }
+          },
+          {
+            "index": 0,
+            "status": "BLOCKED",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1800,
+              "widthMm": 800,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "Projected margin is below the maker minimum. The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "rationale": "This option proposes selling the existing raw tabletop without any cuts. This avoids the cutting costs, which significantly reduces the overall cost and allows the price to meet the buyer's budget while maintaining a positive margin for the maker.",
+            "tradeoff": "Buyer accepts a larger tabletop (1800mm x 800mm) than requested (1600mm x 700mm) and an earlier pickup date (2026-11-06) than requested (2026-11-09).",
+            "evidence": [
+              {
+                "ref": "snapshot.lengthMm",
+                "value": "1800"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "800"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              },
+              {
+                "ref": "buyer.budget",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.incurred",
+                "value": "300000"
+              },
+              {
+                "ref": "snapshot.completion",
+                "value": "30000"
+              },
+              {
+                "ref": "snapshot.fees",
+                "value": "10000"
+              },
+              {
+                "ref": "snapshot.contingency",
+                "value": "10000"
+              }
+            ],
+            "changes": [
+              "lengthMm",
+              "widthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": -170000,
+              "stressMargin": -176000,
+              "adaptation": 0,
+              "fragile": true
+            }
+          }
+        ],
+        "warnings": [
+          {
+            "code": "MARGIN",
+            "evidence": "Projected margin is below the maker minimum.",
+            "action": "Resolve this constraint before making a commitment."
+          },
+          {
+            "code": "STRESS_PROTECTION",
+            "evidence": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "action": "Review supported size/cost alternatives; do not raise the recorded budget."
+          },
+          {
+            "code": "APPROVALS_REQUIRED",
+            "evidence": "Planning proposals do not establish maker or buyer acceptance.",
+            "action": "Fix the exact terms and collect all three separately authenticated approvals before commitment."
+          }
+        ],
+        "baseline": {
+          "status": "REJECTED",
+          "reasons": [
+            {
+              "code": "MARGIN",
+              "message": "Projected margin is below the maker minimum."
+            },
+            {
+              "code": "STRESS_PROTECTION",
+              "message": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget."
+            }
+          ],
+          "questions": [],
+          "operations": [
+            {
+              "id": "SHORTEN_TOP",
+              "from": 1800,
+              "to": 1600,
+              "unit": "mm",
+              "cost": 5000,
+              "evidence": "snapshot:v1:allowShorten"
+            },
+            {
+              "id": "NARROW_TOP",
+              "from": 800,
+              "to": 700,
+              "unit": "mm",
+              "cost": 5000,
+              "evidence": "snapshot:v1:allowNarrow"
+            }
+          ],
+          "price": 170000,
+          "costs": 350000,
+          "adaptation": 10000,
+          "margin": -180000,
+          "baseline": -204000,
+          "improvement": 24000,
+          "stressMargin": -188000,
+          "risk": {
+            "policy": "PROTECT_MINIMUM",
+            "stressAllowance": 8000,
+            "minimumProtectedPrice": 368000,
+            "maximumPermittedPrice": 170000,
+            "priceShortfall": 198000,
+            "marginHeadroom": 0,
+            "notice": "Modeled 20% overrun, not a guarantee. Costs, buyer budget and cancellation terms require evidence; no values were changed."
+          },
+          "fragile": true,
+          "removedTopAreaMm2": null
+        },
+        "ranking": "Policy pass, non-fragile outcome, fewer buyer requirement changes, then higher stressed margin. Not a measured buyer-satisfaction score.",
+        "notice": "AI rationale is a proposal, not a verified fact or acceptance. All prices and margins are checked by deterministic rules. No payment is executed.",
+        "source": "GEMINI_API",
+        "model": "gemini-2.5-flash",
+        "promptVersion": "commercial-alternatives-v1",
+        "latencyMs": 6618,
+        "usage": {
+          "promptTokenCount": 945,
+          "candidatesTokenCount": 1111,
+          "totalTokenCount": 2056,
+          "cachedContentTokenCount": 569,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 945
+            }
+          ],
+          "cacheTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 569
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "cost": "Not measured; free-tier configuration required."
+      },
+      "generated": 4,
+      "policyPass": 0,
+      "blocked": 4,
+      "rulesOnlyBaseline": "REJECTED",
+      "conditionalReviewable": 0,
+      "expectation": "No financially eligible alternatives",
+      "expectationMet": true
+    },
+    {
+      "name": "adversarial free-form notes",
+      "type": "commercial",
+      "status": "UNAVAILABLE",
+      "providerCalls": 1,
+      "elapsedMs": 69650,
+      "reason": "AI could not connect or timed out. Manual planning remains available; no automatic retry.",
+      "expectationMet": false
+    },
+    {
+      "name": "ambiguous dimensions",
+      "type": "extraction",
+      "status": "COMPLETED",
+      "providerCalls": 1,
+      "elapsedMs": 2606,
+      "payloadExcludedMarker": true,
+      "model": "gemini-2.5-flash",
+      "promptVersion": "buyer-notes-v2-numbered-lines",
+      "usage": {
+        "promptTokenCount": 253,
+        "candidatesTokenCount": 98,
+        "totalTokenCount": 351,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 253
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "result": {
+        "facts": [
+          {
+            "field": "material",
+            "value": "walnut",
+            "quote": "SYNTHETIC evaluation. Walnut desk, natural finish.",
+            "line": 1
+          },
+          {
+            "field": "finish",
+            "value": "natural",
+            "quote": "SYNTHETIC evaluation. Walnut desk, natural finish.",
+            "line": 1
+          },
+          {
+            "field": "budget",
+            "value": 170000,
+            "quote": "Budget USD 1700.",
+            "line": 3
+          }
+        ],
+        "rejected": [],
+        "questions": [
+          "What are the units for the length and width?"
+        ],
+        "missing": [
+          "lengthMm",
+          "widthMm",
+          "latestDate",
+          "pickupArea"
+        ],
+        "notice": "Quoted evidence verified mechanically. Interpretation can still be wrong; review every field. No consent, maker rule, price commitment or payment permission is inferred.",
+        "model": "gemini-2.5-flash",
+        "promptVersion": "buyer-notes-v2-numbered-lines",
+        "latencyMs": 2605,
+        "usage": {
+          "promptTokenCount": 253,
+          "candidatesTokenCount": 98,
+          "totalTokenCount": 351,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 253
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "source": "GEMINI_API"
+      },
+      "acceptedFacts": 3,
+      "rejectedFacts": 0,
+      "unsafeDimensionCertainty": false,
+      "expectationMet": true
+    },
+    {
+      "name": "contradictory dimensions",
+      "type": "extraction",
+      "status": "COMPLETED",
+      "providerCalls": 1,
+      "elapsedMs": 2239,
+      "payloadExcludedMarker": true,
+      "model": "gemini-2.5-flash",
+      "promptVersion": "buyer-notes-v2-numbered-lines",
+      "usage": {
+        "promptTokenCount": 279,
+        "candidatesTokenCount": 164,
+        "totalTokenCount": 443,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 279
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "result": {
+        "facts": [
+          {
+            "field": "material",
+            "value": "walnut",
+            "quote": "SYNTHETIC evaluation. Walnut desk, natural finish.",
+            "line": 1
+          },
+          {
+            "field": "finish",
+            "value": "natural",
+            "quote": "SYNTHETIC evaluation. Walnut desk, natural finish.",
+            "line": 1
+          },
+          {
+            "field": "widthMm",
+            "value": 700,
+            "quote": "Width 70 cm.",
+            "line": 4
+          },
+          {
+            "field": "budget",
+            "value": 170000,
+            "quote": "Budget USD 1700.",
+            "line": 5
+          }
+        ],
+        "rejected": [
+          {
+            "field": "lengthMm",
+            "reason": "Repeated or conflicting values need human clarification."
+          }
+        ],
+        "questions": [],
+        "missing": [
+          "lengthMm",
+          "latestDate",
+          "pickupArea"
+        ],
+        "notice": "Quoted evidence verified mechanically. Interpretation can still be wrong; review every field. No consent, maker rule, price commitment or payment permission is inferred.",
+        "model": "gemini-2.5-flash",
+        "promptVersion": "buyer-notes-v2-numbered-lines",
+        "latencyMs": 2238,
+        "usage": {
+          "promptTokenCount": 279,
+          "candidatesTokenCount": 164,
+          "totalTokenCount": 443,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 279
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "source": "GEMINI_API"
+      },
+      "acceptedFacts": 4,
+      "rejectedFacts": 1,
+      "unsafeDimensionCertainty": false,
+      "expectationMet": true
+    }
+  ],
+  "requestBudget": 5,
+  "automaticRetries": 0,
+  "pricing": {
+    "source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "model": "gemini-2.5-flash",
+    "freeTierTokenChargeEstimateUsd": 0,
+    "assumption": "Only applicable to confirmed free-tier requests. This is a pricing estimate, not measured billing.",
+    "actualInvoiceChargeUsd": null
+  },
+  "limits": [
+    "Small development sample, not a population accuracy estimate.",
+    "Fixture pass rate measures policy enforcement, not model intelligence.",
+    "Rules baseline evaluates unchanged requirements; AI options may conditionally change dimensions/dates and still require agreement.",
+    "No customer time savings, manual-work reduction, satisfaction or realized profit measured."
+  ],
+  "liveSampleCreatedAt": "2026-10-30T14:09:23.663Z",
+  "summary": {
+    "fixturePassed": 15,
+    "fixtureTotal": 15,
+    "liveRequests": 5,
+    "liveCompleted": 4,
+    "liveUnavailable": 1,
+    "liveExpectationsMet": 4,
+    "generatedCommercialAlternatives": 7,
+    "policyPassCommercialAlternatives": 1,
+    "blockedCommercialAlternatives": 6,
+    "medianSuccessfulLatencyMs": 3850,
+    "totalReportedTokens": 4463
+  }
+}

@@ -16,4 +16,3 @@ Use a single saved plan/case and current exact-term approvals. First approve and
 Afterward, require linked signed events and every joined evidence checkpoint, including matching AI commercial provenance. A missing stage stays pending. Reconcile uncertain provider responses before retrying any mutation. Test doubles establish failure handling, not real provider success.
 
 The final video must describe the recorded scenario accurately. Synthetic requirements, modeled costs and user-controlled role accounts must remain labeled. Physical fulfillment, independent customer demand and actual merchant profit are separate evidence requirements.
-

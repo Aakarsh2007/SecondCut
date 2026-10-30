@@ -61,4 +61,3 @@ export default function Home(){
  </div>;
 }
 function Step({n,title,detail,status,done,id,children}:{n:string;title:string;detail:string;status:string;done:boolean;id?:string|null;children:React.ReactNode}){return <div className={`step ${done?'done':''}`}><span className="step-number">{done?<Check size={16}/>:n}</span><div className="step-copy"><h3>{title}</h3><p>{detail}</p>{id&&<code>PayPal · {id}</code>}</div><div className="step-actions"><small>{text(status)}</small><div>{children}</div></div></div>}
-
