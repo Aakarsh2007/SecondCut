@@ -2,6 +2,7 @@
 import {useEffect,useRef,useState} from 'react';
 import CommercialHistory from './CommercialHistory';
 import SourceFacts from './SourceFacts';
+import ResolutionOutcome from './ResolutionOutcome';
 const labels:Record<string,string>={aiExtractionRecorded:'AI requirements grounded',feasiblePlanSaved:'Feasible plan saved',separateAccountApprovals:'Three exact-term account approvals',originalDepositVerified:'Original deposit verified',replacementCaptureVerified:'Replacement capture verified',originalRefundVerified:'Original refund verified',signedCaptureAndRefundEventsProcessed:'Linked signed events processed'};
 export default function JourneyEvidence({caseId,revision}:{caseId:string;revision:string}){
  const [report,setReport]=useState<any>(null),[error,setError]=useState(''),[busy,setBusy]=useState(false);
@@ -11,8 +12,10 @@ export default function JourneyEvidence({caseId,revision}:{caseId:string;revisio
  return <section className="panel journey-panel" aria-label="Joined journey evidence">
   <div className="section-title"><h2>One journey. Verified records.</h2><span className="tag">SANDBOX EVIDENCE</span></div>
   <p className="journey-intro">Each checkpoint uses this case’s saved server records. Missing steps stay visible.</p>
+  <p className="journey-note"><a href="/evidence">Three contrasting AI scenarios</a> · <a href="/comparison">Timed review comparison</a></p>
   {error&&<p role="alert" className="error">{error}</p>}{busy&&!report&&<p role="status">Checking saved evidence…</p>}
   {report&&<>
+   <ResolutionOutcome report={report}/>
    <div role="status" className={`journey-status ${report.joinedSandboxJourneyComplete?'verified':''}`}><strong>{report.joinedSandboxJourneyComplete?'Joined sandbox financial journey verified.':'Joined sandbox journey is incomplete.'}</strong><span>{Object.values(report.checkpoints).filter(Boolean).length} / 7 checkpoints</span></div>
    <ul className="journey-checks">{Object.entries(labels).map(([key,label])=><li key={key} className={report.checkpoints[key]?'verified':'pending'}><span aria-hidden="true">{report.checkpoints[key]?'✓':'○'}</span><div><b>{label}</b><small>{report.checkpoints[key]?'Verified':'Pending'}</small></div></li>)}</ul>
    {report.ai?.serverRecordedProviderResponse&&<p className="journey-note">{report.ai.model} · {report.ai.facts?.length||0} cited fields · {report.ai.editedFields?.length||0} fields changed after extraction.</p>}

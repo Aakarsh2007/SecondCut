@@ -1,0 +1,791 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-30T16:19:53.580Z",
+  "scenarioSource": "SYNTHETIC",
+  "live": true,
+  "requestBudget": 3,
+  "automaticRetries": 0,
+  "payments": 0,
+  "rows": [
+    {
+      "id": "A",
+      "name": "Expensive cuts",
+      "expected": "Conditional larger uncut top; changed dimensions need approval.",
+      "input": {
+        "snapshot": {
+          "title": "Unfinished walnut writing desk",
+          "version": 1,
+          "unit": "mm",
+          "lengthMm": 1800,
+          "widthMm": 800,
+          "material": "walnut",
+          "finish": "natural",
+          "stage": "raw",
+          "allowShorten": true,
+          "allowNarrow": true,
+          "makerConfirmed": true,
+          "rightsConfirmed": true,
+          "quoteExpiresDate": "2026-11-13",
+          "readyDate": "2026-11-06",
+          "pickupArea": "Workshop pickup",
+          "deposit": 100000,
+          "refund": 90000,
+          "incurred": 110000,
+          "completion": 30000,
+          "fees": 10000,
+          "tax": 0,
+          "contingency": 10000,
+          "minimumMargin": 10000,
+          "minimumImprovement": 10000,
+          "askingPrice": 170000,
+          "floorPrice": 150000,
+          "cutLengthCost": 5000,
+          "cutWidthCost": 5000,
+          "baselineRefund": 0,
+          "baselineDisposal": 0,
+          "baselineFees": 4000,
+          "baselineSalvage": 0,
+          "requireStressProtection": true
+        },
+        "needs": [
+          {
+            "source": "SYNTHETIC",
+            "consent": true,
+            "open": true,
+            "expiresDate": "2026-11-13",
+            "lengthMm": 1600,
+            "widthMm": 700,
+            "material": "walnut",
+            "finish": "natural",
+            "pickupArea": "Workshop pickup",
+            "latestDate": "2026-11-09",
+            "budget": 170000,
+            "id": "studio",
+            "label": "Studio desk request"
+          }
+        ]
+      },
+      "baseline": {
+        "status": "REJECTED",
+        "reasons": [
+          "STRESS_PROTECTION"
+        ]
+      },
+      "status": "COMPLETED",
+      "providerCalls": 1,
+      "result": {
+        "alternatives": [
+          {
+            "index": 0,
+            "status": "REVIEWABLE",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1800,
+              "widthMm": 800,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "Counteroffer passes the modeled maker limits. It is not accepted by any participant and needs fresh proposal confirmation.",
+            "rationale": "This option proposes selling the raw, uncut tabletop at the original asking price. It avoids all cutting costs, which reduces the overall cost and eliminates the stress protection shortfall. The buyer would need to agree to a larger tabletop and arrange for their own cutting.",
+            "tradeoff": "Buyer accepts a larger tabletop (1800mm x 800mm instead of 1600mm x 700mm) and arranges for their own cutting.",
+            "evidence": [
+              {
+                "ref": "snapshot.lengthMm",
+                "value": "1800"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "800"
+              },
+              {
+                "ref": "snapshot.askingPrice",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              }
+            ],
+            "changes": [
+              "lengthMm",
+              "widthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": 20000,
+              "stressMargin": 14000,
+              "adaptation": 0,
+              "fragile": false
+            }
+          },
+          {
+            "index": 1,
+            "status": "BLOCKED",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1600,
+              "widthMm": 800,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "rationale": "This option proposes cutting only the length of the tabletop to the buyer's requested dimension, while keeping the width at the original stock size. This reduces the cutting costs compared to both cuts, which helps to mitigate the stress protection shortfall. The buyer would need to agree to a wider tabletop.",
+            "tradeoff": "Buyer accepts a wider tabletop (1600mm x 800mm instead of 1600mm x 700mm).",
+            "evidence": [
+              {
+                "ref": "snapshot.lengthMm",
+                "value": "1800"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "800"
+              },
+              {
+                "ref": "snapshot.allowShorten",
+                "value": "true"
+              },
+              {
+                "ref": "snapshot.cutLengthCost",
+                "value": "5000"
+              },
+              {
+                "ref": "snapshot.askingPrice",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              },
+              {
+                "ref": "buyer.lengthMm",
+                "value": "1600"
+              }
+            ],
+            "changes": [
+              "widthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": 15000,
+              "stressMargin": 8000,
+              "adaptation": 5000,
+              "fragile": true
+            }
+          },
+          {
+            "index": 2,
+            "status": "BLOCKED",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1800,
+              "widthMm": 700,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "rationale": "This option proposes cutting only the width of the tabletop to the buyer's requested dimension, while keeping the length at the original stock size. This reduces the cutting costs compared to both cuts, which helps to mitigate the stress protection shortfall. The buyer would need to agree to a longer tabletop.",
+            "tradeoff": "Buyer accepts a longer tabletop (1800mm x 700mm instead of 1600mm x 700mm).",
+            "evidence": [
+              {
+                "ref": "snapshot.lengthMm",
+                "value": "1800"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "800"
+              },
+              {
+                "ref": "snapshot.allowNarrow",
+                "value": "true"
+              },
+              {
+                "ref": "snapshot.cutWidthCost",
+                "value": "5000"
+              },
+              {
+                "ref": "snapshot.askingPrice",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              },
+              {
+                "ref": "buyer.widthMm",
+                "value": "700"
+              }
+            ],
+            "changes": [
+              "lengthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": 15000,
+              "stressMargin": 8000,
+              "adaptation": 5000,
+              "fragile": true
+            }
+          }
+        ],
+        "warnings": [
+          {
+            "code": "STRESS_PROTECTION",
+            "evidence": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget.",
+            "action": "Review supported size/cost alternatives; do not raise the recorded budget."
+          },
+          {
+            "code": "APPROVALS_REQUIRED",
+            "evidence": "Planning proposals do not establish maker or buyer acceptance.",
+            "action": "Fix the exact terms and collect all three separately authenticated approvals before commitment."
+          }
+        ],
+        "baseline": {
+          "status": "REJECTED",
+          "reasons": [
+            {
+              "code": "STRESS_PROTECTION",
+              "message": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget."
+            }
+          ],
+          "questions": [],
+          "operations": [
+            {
+              "id": "SHORTEN_TOP",
+              "from": 1800,
+              "to": 1600,
+              "unit": "mm",
+              "cost": 5000,
+              "evidence": "snapshot:v1:allowShorten"
+            },
+            {
+              "id": "NARROW_TOP",
+              "from": 800,
+              "to": 700,
+              "unit": "mm",
+              "cost": 5000,
+              "evidence": "snapshot:v1:allowNarrow"
+            }
+          ],
+          "price": 170000,
+          "costs": 160000,
+          "adaptation": 10000,
+          "margin": 10000,
+          "baseline": -14000,
+          "improvement": 24000,
+          "stressMargin": 2000,
+          "risk": {
+            "policy": "PROTECT_MINIMUM",
+            "stressAllowance": 8000,
+            "minimumProtectedPrice": 178000,
+            "maximumPermittedPrice": 170000,
+            "priceShortfall": 8000,
+            "marginHeadroom": 0,
+            "notice": "Modeled 20% overrun, not a guarantee. Costs, buyer budget and cancellation terms require evidence; no values were changed."
+          },
+          "fragile": true,
+          "removedTopAreaMm2": null
+        },
+        "ranking": "Policy pass, non-fragile outcome, fewer buyer requirement changes, then higher stressed margin. Not a measured buyer-satisfaction score.",
+        "notice": "AI rationale is a proposal, not a verified fact or acceptance. All prices and margins are checked by deterministic rules. No payment is executed.",
+        "source": "GEMINI_API",
+        "model": "gemini-2.5-flash",
+        "promptVersion": "commercial-alternatives-v1",
+        "latencyMs": 4612,
+        "usage": {
+          "promptTokenCount": 921,
+          "candidatesTokenCount": 692,
+          "totalTokenCount": 1613,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 921
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "cost": "Not measured; free-tier configuration required."
+      },
+      "elapsedMs": 4614,
+      "reviewable": 1,
+      "expectedOutcomeMet": true
+    },
+    {
+      "id": "B",
+      "name": "Early deadline",
+      "expected": "Later pickup with a single width cut; original requested geometry can be retained.",
+      "input": {
+        "snapshot": {
+          "title": "Unfinished walnut writing desk",
+          "version": 1,
+          "unit": "mm",
+          "lengthMm": 1600,
+          "widthMm": 900,
+          "material": "walnut",
+          "finish": "natural",
+          "stage": "raw",
+          "allowShorten": false,
+          "allowNarrow": true,
+          "makerConfirmed": true,
+          "rightsConfirmed": true,
+          "quoteExpiresDate": "2026-11-13",
+          "readyDate": "2026-11-06",
+          "pickupArea": "Workshop pickup",
+          "deposit": 100000,
+          "refund": 90000,
+          "incurred": 110000,
+          "completion": 30000,
+          "fees": 10000,
+          "tax": 0,
+          "contingency": 10000,
+          "minimumMargin": 10000,
+          "minimumImprovement": 10000,
+          "askingPrice": 170000,
+          "floorPrice": 150000,
+          "cutLengthCost": 5000,
+          "cutWidthCost": 2000,
+          "baselineRefund": 0,
+          "baselineDisposal": 0,
+          "baselineFees": 4000,
+          "baselineSalvage": 0,
+          "requireStressProtection": true
+        },
+        "needs": [
+          {
+            "source": "SYNTHETIC",
+            "consent": true,
+            "open": true,
+            "expiresDate": "2026-11-13",
+            "lengthMm": 1600,
+            "widthMm": 700,
+            "material": "walnut",
+            "finish": "natural",
+            "pickupArea": "Workshop pickup",
+            "latestDate": "2026-11-02",
+            "budget": 170000,
+            "id": "studio",
+            "label": "Studio desk request"
+          }
+        ]
+      },
+      "baseline": {
+        "status": "REJECTED",
+        "reasons": [
+          "DEADLINE"
+        ]
+      },
+      "status": "COMPLETED",
+      "providerCalls": 1,
+      "result": {
+        "alternatives": [
+          {
+            "index": 0,
+            "status": "REVIEWABLE",
+            "offer": {
+              "price": 170000,
+              "lengthMm": 1600,
+              "widthMm": 700,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "Counteroffer passes the modeled maker limits. It is not accepted by any participant and needs fresh proposal confirmation.",
+            "rationale": "This option matches the buyer's requested dimensions and material/finish, with the only change being a later pickup date. The price remains the same as the original asking price.",
+            "tradeoff": "Buyer accepts a later pickup date of 2026-11-06 instead of 2026-11-02.",
+            "evidence": [
+              {
+                "ref": "buyer.lengthMm",
+                "value": "1600"
+              },
+              {
+                "ref": "buyer.widthMm",
+                "value": "700"
+              },
+              {
+                "ref": "buyer.material",
+                "value": "walnut"
+              },
+              {
+                "ref": "buyer.finish",
+                "value": "natural"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              },
+              {
+                "ref": "snapshot.askingPrice",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.cutWidthCost",
+                "value": "2000"
+              }
+            ],
+            "changes": [
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 170000,
+              "margin": 18000,
+              "stressMargin": 11600,
+              "adaptation": 2000,
+              "fragile": false
+            }
+          },
+          {
+            "index": 1,
+            "status": "REVIEWABLE",
+            "offer": {
+              "price": 168000,
+              "lengthMm": 1600,
+              "widthMm": 900,
+              "latestDate": "2026-11-06"
+            },
+            "reason": "Counteroffer passes the modeled maker limits. It is not accepted by any participant and needs fresh proposal confirmation.",
+            "rationale": "This option offers a larger tabletop than requested, but at a reduced price, and avoids the cost of cutting the width. The material and finish match the buyer's preference.",
+            "tradeoff": "Buyer accepts a larger tabletop (900mm width instead of 700mm) and a later pickup date of 2026-11-06, in exchange for a lower price.",
+            "evidence": [
+              {
+                "ref": "buyer.lengthMm",
+                "value": "1600"
+              },
+              {
+                "ref": "snapshot.widthMm",
+                "value": "900"
+              },
+              {
+                "ref": "buyer.material",
+                "value": "walnut"
+              },
+              {
+                "ref": "buyer.finish",
+                "value": "natural"
+              },
+              {
+                "ref": "snapshot.readyDate",
+                "value": "2026-11-06"
+              },
+              {
+                "ref": "snapshot.askingPrice",
+                "value": "170000"
+              },
+              {
+                "ref": "snapshot.cutWidthCost",
+                "value": "2000"
+              }
+            ],
+            "changes": [
+              "widthMm",
+              "latestDate"
+            ],
+            "needsBuyerAgreement": true,
+            "metrics": {
+              "price": 168000,
+              "margin": 18000,
+              "stressMargin": 12000,
+              "adaptation": 0,
+              "fragile": false
+            }
+          }
+        ],
+        "warnings": [
+          {
+            "code": "DEADLINE",
+            "evidence": "Workshop cannot meet the requested pickup date.",
+            "action": "Ask the buyer whether a later pickup is acceptable; obtain fresh approval."
+          },
+          {
+            "code": "APPROVALS_REQUIRED",
+            "evidence": "Planning proposals do not establish maker or buyer acceptance.",
+            "action": "Fix the exact terms and collect all three separately authenticated approvals before commitment."
+          }
+        ],
+        "baseline": {
+          "status": "REJECTED",
+          "reasons": [
+            {
+              "code": "DEADLINE",
+              "message": "Workshop cannot meet the requested pickup date."
+            }
+          ],
+          "questions": [],
+          "operations": [
+            {
+              "id": "NARROW_TOP",
+              "from": 900,
+              "to": 700,
+              "unit": "mm",
+              "cost": 2000,
+              "evidence": "snapshot:v1:allowNarrow"
+            }
+          ],
+          "price": 170000,
+          "costs": 152000,
+          "adaptation": 2000,
+          "margin": 18000,
+          "baseline": -14000,
+          "improvement": 32000,
+          "stressMargin": 11600,
+          "risk": null,
+          "fragile": false,
+          "removedTopAreaMm2": null
+        },
+        "ranking": "Policy pass, non-fragile outcome, fewer buyer requirement changes, then higher stressed margin. Not a measured buyer-satisfaction score.",
+        "notice": "AI rationale is a proposal, not a verified fact or acceptance. All prices and margins are checked by deterministic rules. No payment is executed.",
+        "source": "GEMINI_API",
+        "model": "gemini-2.5-flash",
+        "promptVersion": "commercial-alternatives-v1",
+        "latencyMs": 3745,
+        "usage": {
+          "promptTokenCount": 774,
+          "candidatesTokenCount": 448,
+          "totalTokenCount": 1222,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 774
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "cost": "Not measured; free-tier configuration required."
+      },
+      "elapsedMs": 3747,
+      "reviewable": 2,
+      "expectedOutcomeMet": true
+    },
+    {
+      "id": "C",
+      "name": "Material conflict",
+      "expected": "No eligible recovery: walnut stock cannot satisfy oak-only request.",
+      "input": {
+        "snapshot": {
+          "title": "Unfinished walnut writing desk",
+          "version": 1,
+          "unit": "mm",
+          "lengthMm": 1800,
+          "widthMm": 800,
+          "material": "walnut",
+          "finish": "natural",
+          "stage": "raw",
+          "allowShorten": true,
+          "allowNarrow": true,
+          "makerConfirmed": true,
+          "rightsConfirmed": true,
+          "quoteExpiresDate": "2026-11-13",
+          "readyDate": "2026-11-06",
+          "pickupArea": "Workshop pickup",
+          "deposit": 100000,
+          "refund": 90000,
+          "incurred": 110000,
+          "completion": 30000,
+          "fees": 10000,
+          "tax": 0,
+          "contingency": 10000,
+          "minimumMargin": 10000,
+          "minimumImprovement": 10000,
+          "askingPrice": 170000,
+          "floorPrice": 150000,
+          "cutLengthCost": 5000,
+          "cutWidthCost": 5000,
+          "baselineRefund": 0,
+          "baselineDisposal": 0,
+          "baselineFees": 4000,
+          "baselineSalvage": 0,
+          "requireStressProtection": true
+        },
+        "needs": [
+          {
+            "source": "SYNTHETIC",
+            "consent": true,
+            "open": true,
+            "expiresDate": "2026-11-13",
+            "lengthMm": 1600,
+            "widthMm": 700,
+            "material": "oak",
+            "finish": "natural",
+            "pickupArea": "Workshop pickup",
+            "latestDate": "2026-11-09",
+            "budget": 170000,
+            "id": "studio",
+            "label": "Studio desk request"
+          }
+        ]
+      },
+      "baseline": {
+        "status": "REJECTED",
+        "reasons": [
+          "MATERIAL"
+        ]
+      },
+      "status": "COMPLETED",
+      "providerCalls": 1,
+      "result": {
+        "alternatives": [],
+        "warnings": [
+          {
+            "code": "MATERIAL",
+            "evidence": "Buyer requires a different material.",
+            "action": "Resolve this constraint before making a commitment."
+          },
+          {
+            "code": "APPROVALS_REQUIRED",
+            "evidence": "Planning proposals do not establish maker or buyer acceptance.",
+            "action": "Fix the exact terms and collect all three separately authenticated approvals before commitment."
+          }
+        ],
+        "baseline": {
+          "status": "REJECTED",
+          "reasons": [
+            {
+              "code": "MATERIAL",
+              "message": "Buyer requires a different material."
+            }
+          ],
+          "questions": [],
+          "operations": [
+            {
+              "id": "SHORTEN_TOP",
+              "from": 1800,
+              "to": 1600,
+              "unit": "mm",
+              "cost": 5000,
+              "evidence": "snapshot:v1:allowShorten"
+            },
+            {
+              "id": "NARROW_TOP",
+              "from": 800,
+              "to": 700,
+              "unit": "mm",
+              "cost": 5000,
+              "evidence": "snapshot:v1:allowNarrow"
+            }
+          ],
+          "price": 170000,
+          "costs": 160000,
+          "adaptation": 10000,
+          "margin": 10000,
+          "baseline": -14000,
+          "improvement": 24000,
+          "stressMargin": 2000,
+          "risk": null,
+          "fragile": true,
+          "removedTopAreaMm2": null
+        },
+        "ranking": "Policy pass, non-fragile outcome, fewer buyer requirement changes, then higher stressed margin. Not a measured buyer-satisfaction score.",
+        "notice": "AI rationale is a proposal, not a verified fact or acceptance. All prices and margins are checked by deterministic rules. No payment is executed.",
+        "source": "GEMINI_API",
+        "model": "gemini-2.5-flash",
+        "promptVersion": "commercial-alternatives-v1",
+        "latencyMs": 1636,
+        "usage": {
+          "promptTokenCount": 813,
+          "candidatesTokenCount": 5,
+          "totalTokenCount": 818,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 813
+            }
+          ],
+          "serviceTier": "standard"
+        },
+        "cost": "Not measured; free-tier configuration required."
+      },
+      "elapsedMs": 1637,
+      "reviewable": 0,
+      "expectedOutcomeMet": true
+    }
+  ],
+  "crossContext": [
+    {
+      "from": "A",
+      "to": "A",
+      "status": "REVIEWABLE",
+      "reason": "Counteroffer passes the modeled maker limits. It is not accepted by any participant and needs fresh proposal confirmation."
+    },
+    {
+      "from": "A",
+      "to": "B",
+      "status": "BLOCKED",
+      "reason": "Evidence references must match the supplied facts exactly."
+    },
+    {
+      "from": "A",
+      "to": "C",
+      "status": "BLOCKED",
+      "reason": "Buyer requires a different material."
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "status": "BLOCKED",
+      "reason": "Evidence references must match the supplied facts exactly."
+    },
+    {
+      "from": "B",
+      "to": "B",
+      "status": "REVIEWABLE",
+      "reason": "Counteroffer passes the modeled maker limits. It is not accepted by any participant and needs fresh proposal confirmation."
+    },
+    {
+      "from": "B",
+      "to": "C",
+      "status": "BLOCKED",
+      "reason": "Evidence references must match the supplied facts exactly."
+    }
+  ],
+  "limits": [
+    "Three development scenarios cannot establish originality, market demand or general accuracy.",
+    "Conditional offers require fresh buyer and maker agreement.",
+    "Counterfactual failure may be caused by a mismatching source reference as well as incompatible geometry/economics. A separate geometry replay is reported.",
+    "Automated timings are not human time saved."
+  ],
+  "geometryReplay": [
+    {
+      "from": "A",
+      "to": "A",
+      "status": "REVIEWABLE",
+      "reason": "Counteroffer passes the modeled maker limits. It is not accepted by any participant and needs fresh proposal confirmation."
+    },
+    {
+      "from": "A",
+      "to": "B",
+      "status": "BLOCKED",
+      "reason": "Required top is longer than the available top. Cutting cannot enlarge it."
+    },
+    {
+      "from": "A",
+      "to": "C",
+      "status": "BLOCKED",
+      "reason": "Buyer requires a different material."
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "status": "BLOCKED",
+      "reason": "The modeled cost overrun breaches the protected minimum margin or baseline improvement. Obtain supported terms or quotes; do not invent a higher buyer budget."
+    },
+    {
+      "from": "B",
+      "to": "B",
+      "status": "REVIEWABLE",
+      "reason": "Counteroffer passes the modeled maker limits. It is not accepted by any participant and needs fresh proposal confirmation."
+    },
+    {
+      "from": "B",
+      "to": "C",
+      "status": "BLOCKED",
+      "reason": "Buyer requires a different material."
+    }
+  ],
+  "summary": {
+    "completed": 3,
+    "requests": 3,
+    "expectedOutcomes": 3,
+    "uniqueReviewableTerms": 3,
+    "unavailable": 0
+  }
+}
