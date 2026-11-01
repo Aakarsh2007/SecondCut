@@ -6,7 +6,7 @@ SecondCut evaluates whether unfinished custom furniture from a cancelled order c
 
 - Gemini extracts explicit requirements from anonymized notes with mechanically checked source quotes. People review the extracted facts; AI cannot grant consent, manufacture permission or payment authority.
 - A deterministic planner checks dimensions, material, finish, raw-stock modification rules, pickup, expiry and integer-cent economics. It compares cancellation against recovery and shows a 20% remaining-work/adaptation overrun scenario.
-- Bounded counteroffers use maker-approved limits and at most three rounds. They are rules-based suggestions, not autonomous buyer negotiations.
+- Bounded counteroffers use maker-approved limits and at most three submitted rounds. Gemini can propose conditional commercial drafts; independent rules validate them. They are not autonomous buyer commitments.
 - Fixed physical/financial terms can use clearly labeled owner-controlled demo attestations or three distinct authenticated participant accounts. Targeted invitations expire and store hashed tokens.
 - PayPal sandbox supports original deposit capture, a different replacement buyer's authorization/capture, original-buyer partial refund, provider readback, idempotency, voiding and conservative reconciliation.
 - A separate durable receiver verifies actual PayPal signatures before storage. The private workspace independently verifies and processes events, then acknowledges them.
@@ -63,7 +63,7 @@ PayPal checkout approvals expire. The explicit expired-replacement recovery cont
 
 New interactive planner sessions enable stress-margin protection by default. Protected mode rejects a proposal if the modeled 20% remaining-work/adaptation overrun breaches the required margin or improvement over cancellation. A financial protection report shows the required price, current ceiling and gap without changing costs, buyer budget or refund. Legacy saved plans retain their explicit review-mode assumptions. Disabling protection permits reviewed fragile proposals; it does not make them financially stronger. Current sample inputs fail protected mode: USD 1,780 would be needed against a USD 1,700 ceiling.
 
-Use the [private validation playbook](docs/VALIDATION_PLAYBOOK.md) to distinguish real maker/buyer evidence from software attestations. It includes go/no-go criteria, an anonymized record template, required cost/constraint checks and the still-unimplemented historical-deposit import boundary. No outreach or real-money purchase is implied.
+Use the [validation playbook](docs/VALIDATION_PLAYBOOK.md) to distinguish real maker/buyer evidence from software attestations. It includes go/no-go criteria, an anonymized record template, required cost/constraint checks and the still-unimplemented historical-deposit import boundary. No outreach or real-money purchase is implied.
 
 Run `node scripts/benchmark-recovery.mjs` without credentials or network access. Eight labeled synthetic scenarios compare the production adaptation planner with an exact-specification baseline using the same physical, availability and financial checks but no cuts. The script asserts the expected decisions and prints modeled results. This is not a benchmark of any named competitor, market demand or AI accuracy. The smaller raw-top request illustrates the extra feasible option; oversized, unsupported, expired and unprofitable requests remain blocked.
 
@@ -106,4 +106,4 @@ The code is MIT licensed; preserve bundled third-party notices. Never publish `.
 
 ## AI commercial alternatives
 
-The planner now offers Gemini-generated conditional alternatives inside the existing counteroffer flow. See [commercial-agent safeguards](docs/COMMERCIAL_AGENT.md) and [synthetic real-provider evaluation](docs/COMMERCIAL_LIVE_EVIDENCE.json). All alternatives are checked deterministically; selecting a draft creates no acceptance or payment. A fresh AI-negotiated joined sandbox payment journey still requires separate verification.
+The planner now offers Gemini-generated conditional alternatives inside the existing counteroffer flow. See [commercial-agent safeguards](docs/COMMERCIAL_AGENT.md) and [synthetic real-provider evaluation](docs/COMMERCIAL_LIVE_EVIDENCE.json). All alternatives are checked deterministically; selecting a draft creates no acceptance or payment. A recorded AI-generated alternative completed a joined sandbox journey: original deposit, replacement authorization/capture, original refund, and resource-linked signed events. See the root README and context-study results. This does not establish real demand or physical fulfillment.
