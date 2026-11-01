@@ -4,6 +4,10 @@
 
 SecondCut is a safety-first recovery workflow for custom furniture. When a buyer cancels after material or labour has been committed, it evaluates whether unfinished work can serve a different, opt-in buyer request. Gemini proposes conditional alternatives; deterministic code proves or blocks them; people approve fixed terms; PayPal Sandbox records the replacement payment and eligible original refund as separate, verifiable operations.
 
+## Watch the demo
+
+[Watch the 2:45 SecondCut PayPal AI Hackathon walkthrough on YouTube](https://www.youtube.com/watch?v=WxN1YPLqALM). It shows the cancelled-order problem, AI-generated alternatives, deterministic safeguards, human approvals, and the recorded PayPal Sandbox capture/refund evidence. It does not claim physical fulfillment or live-money processing.
+
 ## Why it stands apart
 
 | Conventional workflow | SecondCut |
